@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import risk_kit as rk
 from abc import ABC
-from collections import Iterable
+from collections.abc import Iterable
 from scipy.optimize import broyden1
 
 
@@ -1138,7 +1138,8 @@ class PassThroughMBS(object):
                 "Total OutStanding Amount": rem_amount,
             }
 
-            self.data = self.data.append(current_values, ignore_index=True)
+            self.data = pd.concat([self.data, pd.DataFrame([current_values])], ignore_index=True)
+            #self.data.append(current_values, ignore_index=True)
 
             self.data.index += 1
 

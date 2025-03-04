@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy.stats import norm
-from collections import Iterable
+from collections.abc import Iterable
 
 
 def discount(time, discount_rate):
